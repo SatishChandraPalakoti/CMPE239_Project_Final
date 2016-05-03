@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<script type="text/javascript" src="assets/js/canvasjs.min.js"></script>
+ <script src="assets/js/jquery-1.11.1.min.js"></script> 
+    <script type="text/javascript">
+    window.onload = function () {
+        
+        //initial value of dataPoints 
+        var dps = [
+        {label: "Approved", y: 100},
+        {label: "Rejected", y: 163}
+        ];  
+
+        var chart = new CanvasJS.Chart("chartContainer",{           
+            title: {
+                text: "Credit Analytics"       
+            },
+            axisY: {                
+                suffix: " C"
+            },      
+            legend :{
+                verticalAlign: "top",
+                horizontalAlign: "centre",
+                fontSize: 18
+
+            },
+            data: [
+            {
+                type: "column", 
+                bevelEnabled: true,             
+                indexLabel: "{y}",
+                dataPoints: dps 
+              
+            
+            }
+            ]
+        });
+
+        
+        var updateInterval = 1000;    
+        var approved;
+        var notapproved;
+
+        var updateChart = function () {
+
+            for (var i = 0; i < dps.length; i++) {
+                
+                // generating random variation deltaY
+                    
+                //sindhutest
+                $.ajax({
+        type: 'GET',
+        url: 'http://ec2-52-32-236-78.us-west-2.compute.amazonaws.com:5000/approved',
+        dataType: "json",
+        success: function(results) {
+       
+        alert(results[0].value);
+         approved = results[0].value; 
+        
+    }
+       
+      
+    })
+             
+             $.ajax({
+        type: 'GET',
+        url: 'http://ec2-52-32-236-78.us-west-2.compute.amazonaws.com:5000/notapproved',
+        dataType: "json",
+        success: function(results) {
+       
+        console.log(results[0].value);
+         notapproved = results[0].value; 
+        
+    }
+       
+      
+    })
+             //sindhutest  
+               // var deltaY = results[0].value;      
+                //var yVal = deltaY + dps[i].y > 0 ? dps[i].y + deltaY : 0;
+                var app = approved ;
+                var rej = notapproved;
+                var leg = dps[i].label;
+                var statusColor;
+
+
+                // color of dataPoint dependent upon y value. 
+
+                boilerColor =
+                app > 200 ? "#FF2500":
+                app >= 170 ? "#FF6000":
+                app < 170 ? "#6B8E23 ": 
+                rej > 200 ? "#FF2500":
+                rej >= 170 ? "#FF6000":
+                rej < 170 ? "#6B8E23 ":                            
+                null;
+
+
+                // updating the dataPoint
+                dps[0] = {label: "APPROVED", y: app, color: statusColor};
+                dps[1] = {label: "REJECTED", y: rej, color: statusColor};
+
+            };
+
+            chart.render();
+        };
+        
+        updateChart();      
+
+        // update chart after specified interval 
+        setInterval(function(){updateChart()}, updateInterval);
+
+
+    }
+    </script>
+    
+</head>
+<body>
+    <!--<div id="chartContainer" style="height: 300px; width: 100;">
+    </div>-->
+    <div id="chartContainer">
+</div>
+<div id="div2">
+<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 982px; height: 742px;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Credit_Dashboard&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1200px' height='100%' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='Credit_Dashboard&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Credit_Dashboard&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showTabs' value='y' /></object></div>
+</div>
+<!-- <div id="div3">
+</div>
+<div id="div4">
+</div> -->
+
+<style>
+html, body { height: 100%; padding: 0; margin: 0; }
+div { width: 100%; height: 50%; float: left; }
+#div1 { background: #DDD; }
+#div2 {  }
+/*#div3 { background: #777; }
+#div4 { background: #444; }*/
+</style>
+
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FinCal</title>
+
+        <!-- CSS -->
+                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+       
+
+
+           <!-- Javascript -->
+       <!-- <script src="assets/js/jquery-1.11.1.min.js"></script>-->
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        
+        <script src="assets/js/scripts.js"></script>
+        
+        
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+        <style type="text/css">
+        .thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: rgba(255, 255, 255, 0);
+    border: 5px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+a:hover{
+    box-shadow: 0px 0px 15px 15px rgba(255, 255, 255, 0.66);
+}
+
+#hanu{
+    /*width: 40px;*/
+}
+        </style>
+
+    </head>
+<!--onload-->
+<script>
+$(document).ready(function(){    
+  
+    $('.targethiv').hide(); 
+});
+</script>
+<!--onload-->
+    <body>
+
+        <!-- Top menu -->
+        <nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">FinCal</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="top-navbar-1">
+                
+                </div>
+            </div>
+        </nav>
+
+        <!-- Top content -->
+        <div class="top-content">
+            
+            <div class="inner-bg" style="padding:0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                          <h1><strong>FinCal</strong> </h1> 
+                          <div class="description">
+                          <p>Use <font size=5><strong>FinCal</strong></font> to apply for a Home Loan or a Credit Card and get a <font size=5><strong>Prediction</strong></font> of your <font size=5><strong>Interest Rate</strong></font> and Credit Card <font size=5><strong>Approval.</strong></font></p>
+                          </div>
+                           <!--  <div class="col-sm-6 book">
+                            <button onclick="toggle();" class="btn" style="float:right; background-color: #E7B319">Credit Card</button>
+                        </div>
+                        <div class="col-sm-6 book">
+                            <button onclick="toggle2();" class="btn" style="float:left; background-color: #E7B319">Loan Rates</button>
+                        </div> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-xs-6 col-md-2"></div>
+                     <div class="col-xs-6 col-md-2">
+    <a href="#creditCard" class="thumbnail" style="border-radius: 100px;">
+      <img src="assets/img/credit.png" id="creditbtn" alt="..."onclick="toggle();">
+      
+    </a>
+    <label>Credit Card</label>
+  </div>
+  <div class="col-xs-6 col-md-1"></div>
+  <div class="col-xs-6 col-md-2">
+    <a href="#loanRate" class="thumbnail" style="border-radius: 100px;">
+     <img src="assets/img/home.png" id="loanbtn" alt="..." onclick="toggle2();">
+    </a>
+    <label>Home Loan</label>
+  </div>
+   
+  <div class="col-xs-6 col-md-1"></div>
+  <div class="col-xs-6 col-md-2">
+    <a  class="thumbnail" style="border-radius: 100px;" >
+      <img src="assets/img/Analytics.png" alt="..." style="width:100%" onclick="toggle3();">
+    </a>
+    <label>View Analytics</label>
+  </div>
+  </div>
+<div id="div1" class="targethiv" style="display:none">
+
+ <div class="top-content">
+            
+            <div class="inner-bg">
+                <div class="container">
+                  
+                    <div class="row">
+                        
+                        <div class=" form-box">
+                            <div class="form-top" style="background: rgba(0, 0, 0, 0.63);box-shadow: 0px 0px 25px 3px;">
+                                <div class="form-top-left">
+                                    <h3><u>Credit Card Applications</u></h3>
+                                    <p>
+                                    <table id="entries" style="font-size: small">
+                                    <tr style="border-bottom: 1px solid;color: #FFF400;">
+                                    <th>
+                                    <span>Uid</span>
+                                    </th>
+                                    <th>
+                                    <span>Gender</span>
+                                    </th>
+                                    <th>
+                                    <span>Age</span>
+                                    </th>
+                                    <th>
+                                    <span>Debt</span>
+                                    </th>
+                                    <th>
+                                    <span>Married</span>
+                                    </th>
+                                    <th>
+                                    <span>Education</span>
+                                    </th>
+                                    <th>
+                                    <span>Ethnicity</span>
+                                    </th>
+                                    <th>
+                                    <span>YearsEmployed</span>
+                                    </th>
+                                    <th>
+                                    <span>PriorDefault</span>
+                                    </th>
+                                    <th>
+                                    <span>Employed</span>
+                                    </th>
+                                    <th>
+                                    <span>CreditScore</span>
+                                    </th>
+                                    <th>
+                                    <span>DriversLicense</span>
+                                    </th>
+                                    <th>
+                                    <span>Citizen</span>
+                                    </th>
+                                    <th>
+                                    <span>Zipcode</span>
+                                    </th>
+                                     <th>
+                                    <span>Income</span>
+                                    </th>
+                                     <th>
+                                    <span>Prediction</span>
+                                    </th>
+                                    <th>
+                                    <span>Approve/Deny</span>
+                                    </th>
+                                    </tr>
+
+                                    
+                                    </table>
+                                    
+                                    <!-- </div> -->
+                                    </p>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+</div>
+
+<div id="div2" class="targethiv" style="display:none">
+
+ <div class="top-content">
+            
+            <div class="inner-bg">
+                <div class="container">
+                  
+                    <div class="row">
+                        
+                        <div class=" form-box">
+
+                            <div class="form-top" style="background: rgba(0, 0, 0, 0.63);box-shadow: 0px 0px 25px 3px;">
+                                <div class="form-top-left">
+                                    <h3><u>Loan Applications</u></h3>
+                                    <p>
+                                    <table id="loanentries" style="font-size: small">
+                                    <tr style="border-bottom: 1px solid;color: #FFF400;">
+                                    <th>
+                                    <span>Uid</span>
+                                    </th>
+                                    <th>
+                                    <span>Income</span>
+                                    </th>
+                                    <th>
+                                    <span>LoanPurpose</span>
+                                    </th>
+                                    <th>
+                                    <span>Coop_unit</span>
+                                    </th>
+                                    <th>
+                                    <span>Term_months</span>
+                                    </th>
+                                    <th>
+                                    <span>State</span>
+                                    </th>
+                                    <th>
+                                    <span>first_hoam_loan</span>
+                                    </th>
+                                    <th>
+                                    <span>Gender</span>
+                                    </th>
+                                    <th>
+                                    <span>Age</span>
+                                    </th>
+                                    <th>
+                                    <span>Num_units</span>
+                                    </th>
+                                    <th>
+                                    <span>CreditScore</span>
+                                    </th>
+                                    <th>
+                                    <span>PropertyTyp</span>
+                                    </th>
+                                    <th>
+                                    <span>interest_rate</span>
+                                    </th>                                   
+                                     <th>
+                                    <span>Approve</span>
+                                    </th>
+                                    <th>
+                                    <span>Modify</span>
+                                    </th>
+                                   <th>New Interest Rate</th>
+                                    </tr>
+
+                                     <!-- <tr>
+                                     <td>
+                                    <span>Uid</span>
+                                    </td>
+                                    <td>
+                                    <span>Income</span>
+                                    </td>
+                                    <td>
+                                    <span>LoanPurpose</span>
+                                    </td>
+                                    <td>
+                                    <span>Coop_unit</span>
+                                    </td>
+                                    <td>
+                                    <span>Term_months</span>
+                                    </td>
+                                    <td>
+                                    <span>State</span>
+                                    </td>
+                                    <td>
+                                    <span>first_hoam_loan</span>
+                                    </td>
+                                    <td>
+                                    <span>Gender</span>
+                                    </td>
+                                    <td>
+                                    <span>Age</span>
+                                    </td>
+                                    <td>
+                                    <span>Num_units</span>
+                                    </td>
+                                    <td>
+                                    <span>CreditScore</span>
+                                    </td>
+                                    <td>
+                                    <span>PropertyTyp</span>
+                                    </td>
+                                    <td>
+                                    <span>interest_rate</span>
+                                    </td>
+                                   
+                                     <td>
+                                    <span>Prediction</span>
+                                    </td>
+                                    <td>
+                                    <span><input type="text" style="width: 5%;height: 30px;padding: 0 17px;"></span></td>
+                                    <td>
+                                    <span><button class="btn" style="background-color: rgba(139, 226, 44, 0.88);;height: 30px;line-height: 0px;margin-left: 10%;padding: 5px;font-size: smaller;">Ok</button></span>
+                                    </td>
+                                    </tr> -->
+                                    </table>
+                                    
+                                    <!-- </div> -->
+                                    </p>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+</div>
+
+<div id="statuschk" class="form-bottom" style=" display:none; margin:0 auto; width:50%; margin-top:5%;box-shadow: 0px 0px 10px 2px white;">
+                             <form role="form" action="" method="post" class="registration-form">
+                             <p>Please select which analytics you would like to view:</p>
+                            
+                            <div class="form-group">
+                            <a href="dash1.html" class="btn" style="float:right; background-color: #E7B319">Credit Card
+                            </a></div>
+                            <div class="form-group">
+                            <a href="dash.html" class="btn" style="float:left; background-color: #E7B319">Loan Rates
+                            </a></div>
+                            
+                            <br>
+                             </form>
+                             </div>
+                             <br>
+</div>
+
+     <script>
+ function toggle()
+        {
+             document.getElementById('div2').style.display='none';
+             document.getElementById('statuschk').style.display='none';
+          document.getElementById('div1').style.display='block';
+        }
+        function toggle2()
+        {
+             document.getElementById('div1').style.display='none';
+             document.getElementById('statuschk').style.display='none';
+          document.getElementById('div2').style.display='block';
+        }
+        function toggle3()
+        {
+             document.getElementById('div1').style.display='none';
+          document.getElementById('div2').style.display='none';
+          document.getElementById('statuschk').style.display='block';
+
+        }
+</script>
+
+     <!--sindhu admin credit-->
+  <script type="text/javascript">
+  $(document).ready(function() {
+  $('#creditbtn').click(function() {
+ //alert("inside creditbtn");
+
+  var url= 'http://ec2-52-32-236-78.us-west-2.compute.amazonaws.com:5000/pending_credit';
+ alert(url);
+
+$.ajax({
+        type: 'GET',
+        url: url,
+        dataType: "json",
+        success: function(results) {
+   
+   var records=" ";
+
+    for(var i=0;i<results.length;i++){
+
+        var record=results[i];
+
+        records="<tr><td id='uid"+(i+1)+"'>"+record.Uid+"</td>"+
+                "<td>"+record.Male+"</td>"+
+                "<td>"+record.Age+"</td>"+
+                "<td>"+record.Debt+"</td>"+
+                "<td>"+record.Married+"</td>"+
+                "<td>"+record.EducationLevel+"</td>"+
+                "<td>"+record.Ethnicity+"</td>"+
+                "<td>"+record.YearsEmployed+"</td>"+
+                "<td>"+record.PriorDefault+"</td>"+
+                "<td>"+record.Employed+"</td>"+
+                "<td>"+record.CreditScore+"</td>"+
+                "<td>"+record.DriversLicense+"</td>"+
+                "<td>"+record.Citizen+"</td>"+
+                "<td>"+record.ZipCode+"</td>"+
+                "<td>"+record.Income+"</td>"+
+                "<td>"+record.Prediction+"</td><td><span><button class='btn jaffa' title='sadfasdf' id='capprove"+(i+1)+"' onclick=approve(uid"+(i+1)+") style='background-color: rgba(139, 226, 44, 0.88);height: 30px;line-height: 0px;padding: 1px;font-size: smaller;'>Approve</button><button class='btn' id='btndeny' onclick=deny(uid"+(i+1)+") style='background-color: #FF4141;height: 30px;line-height: 0px;margin-left: 10%;padding: 5px;font-size: smaller;'>Deny</button></span></td></tr>" 
+
+
+
+        $("#entries").append(records);
+ 
+         
+    }
+        
+    }
+        
+      
+    })
+
+  });
+});
+
+
+  </script>    
+
+
+
+
+   <script type="text/javascript">
+
+    function approve(elem) {
+    var id = $(elem).text(); 
+    alert("You are approving for the id: "+id) 
+
+    $.ajax({
+        type: 'PUT',
+        url: 'http://ec2-52-32-236-78.us-west-2.compute.amazonaws.com:5000/credit_approved_for='+id,
+        dataType: "json",
+        success: function(results) {
+//alert(results);
+}
+ })
+  //$('#btndeny').hide;
+   $('#btndeny').prop('disabled', true);
+   $('#capprove').prop('disabled', true);
+}
+
+    
+    function deny(elem) {
+    var id = $(elem).text(); 
+    alert("You are denying for the id: "+id) 
+    $.ajax({
+        type: 'PUT',
+        url: 'http://ec2-52-32-236-78.us-west-2.compute.amazonaws.com:5000/credit_denied_for='+id,
+        dataType: "json",
+        success: function(results) {
+//alert(results);
+}
+ })
+  $('#capprove').prop('disabled', true);
+$('#btndeny').prop('disabled', true);
+}
+
+ 
+
+  </script>    
+<!--sindhu loan btn-->
+     <!--sindhu admin credit-->
+  <script type="text/javascript">
+  $(document).ready(function() {
+  $('#loanbtn').click(function() {
+ //alert("inside creditbtn");
+
+  //var url= 'http://ec2-52-32-236-78.us-west-2.compute.amazonaws.com:5000/pending_credit';
+  var url='http://ec2-52-32-236-78.us-west-2.compute.amazonaws.com:5000/pending_loan';
+ alert(url);
+
+$.ajax({
+        type: 'GET',
+        url: url,
+        dataType: "json",
+        success: function(results) {
+   
+   var records=" ";
+
+    for(var i=0;i<results.length;i++){
+
+        var record=results[i];
+
+        records="<tr><td id='uid"+(i+1)+"'>"+record.Uid+"</td>"+
+               
+                "<td>"+record.income+"</td>"+
+                "<td>"+record.loan_purpose+"</td>"+
+                "<td>"+record.coop_unit+"</td>"+
+                "<td>"+record.trem_months+"</td>"+
+                "<td>"+record.state_clean+"</td>"+
+                "<td>"+record.first_hoam_loan+"</td>"+
+                "<td>"+record.gender+"</td>"+
+                "<td>"+record.age+"</td>"+
+                "<td>"+record.num_units+"</td>"+
+                "<td>"+record.credit_score+"</td>"+
+                "<td>"+record.prop_typ+"</td>"+
+                "<td>"+record.prediction_int_rate+"</td><td><span><button class='btn jaffa'  id='lapprove"+(i+1)+"' onclick=lapprove(uid"+(i+1)+") style='background-color: rgba(139, 226, 44, 0.88);height: 30px;line-height: 0px;padding: 1px;font-size: smaller;'>Ok</button></td><td><button class='btn' onclick=ledit(uid"+(i+1)+") style='background-color: #FF4141;height: 30px;line-height: 0px;margin-left: 10%;padding: 5px;font-size: smaller;'>Edit</button></span></td><td><input type='text' id='hanu' placeholder='0.00' maxlength='4' size='4'></td></tr>" 
+
+
+
+
+
+        $("#loanentries").append(records);
+ 
+         
+    }
+        
+    }
+        
+      
+    })
+
+  });
+});
+
+
+  </script>  
+  <script type="text/javascript">
+
+    function lapprove(elem) {
+    var idloan = $(elem).text(); 
+
+    alert("You are approving for the id: "+idloan) 
+    $.ajax({
+        type: 'PUT',
+        url: 'http://ec2-52-32-236-78.us-west-2.compute.amazonaws.com:5000/loan_interest_accepted='+idloan,
+        dataType: "json",
+        success: function(results) {
+//alert(results);
+}
+ })
+ 
+}
+
+    function ledit(elem) {
+   // var idloan = $(elem).text();
+   //var fname=$('#firstName').val(); 
+    var useridloan = $(elem).text(); 
+   var editedval = $('#hanu').val(); 
+    alert(editedval) ;
+
+        //alert("You are approving for the id: "+useridloan) 
+
+    $.ajax({
+        type: 'PUT',
+        url: 'http://ec2-52-32-236-78.us-west-2.compute.amazonaws.com:5000/loan_interest_modified='+editedval+'/for_uid='+useridloan,
+        dataType: "json",
+        success: function(results) {
+//alert(results);
+}
+ })
+
+ 
+}
+
+  
+ 
+
+  </script>   
+    </body>
+
+</html>
